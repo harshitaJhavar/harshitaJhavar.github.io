@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshita Jhavar | NLP/ML Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f7f8fa;
+      --text: #1a1a2e;
+      --text-secondary: #555770;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border: #e2e4ea;
+      --tag-bg: #eef2ff;
+      --tag-text: #3730a3;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.06);
+      --radius: 8px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 16px 24px;
+    }
+    nav .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      margin-left: 28px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .hero-text { flex: 1; }
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .hero .subtitle {
+      margin-top: 16px;
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+    .hero .links {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hero .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--bg);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Experience */
+    .experience-item {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 32px;
+      border-left: 2px solid var(--border);
+    }
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .experience-item .role {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .experience-item .company {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .experience-item .date {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .experience-item ul {
+      margin-top: 12px;
+      padding-left: 18px;
+    }
+    .experience-item li {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .experience-item li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Publications & Research */
+    .pub-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .pub-item:hover { box-shadow: var(--shadow-lg); }
+    .pub-item h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .pub-item .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-top: 6px;
+    }
+    .pub-item .pub-links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .pub-item .pub-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pub-item .pub-links a:hover { text-decoration: underline; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .project-card h3 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .project-card h3 a:hover { color: var(--accent); }
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .project-card .tags {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 4px;
+      padding: 3px 10px;
+      letter-spacing: 0.01em;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-item .degree {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .edu-item .school {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .edu-item .edu-date {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* Awards */
+    .award-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-item strong { font-weight: 600; }
+    .award-item span { color: var(--text-secondary); }
+
+    /* Footer */
+    footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { flex-direction: column-reverse; padding: 40px 20px 30px; gap: 24px; }
+      .hero h1 { font-size: 2rem; }
+      .hero-photo { width: 140px; height: 140px; }
+      section { padding: 30px 20px; }
+      .edu-item { flex-direction: column; gap: 4px; }
+      nav .nav-links a { margin-left: 16px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">HJ</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Harshita Jhavar</h1>
+      <p class="subtitle">
+        Senior ML Data and Applied Scientist at Apple building multilingual LLM pipelines, multi-agent inference systems, and evaluation frameworks at scale. Previously NLP and Machine Learning at Microsoft (Teams, Surface, Windows).
+      </p>
+      <div class="links">
+        <a href="mailto:jhavarharshita@gmail.com" class="btn-primary">Get in Touch</a>
+        <a href="https://github.com/harshitaJhavar" target="_blank" class="btn-outline">GitHub</a>
+        <a href="https://linkedin.com/in/harshitajhavar" target="_blank" class="btn-outline">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=harshitajhavar" target="_blank" class="btn-outline">Google Scholar</a>
+      </div>
+    </div>
+    <img src="image/EDUA2R4KG-U0568227Z4P-cc7b81449f01-512.jpg" alt="Harshita Jhavar" class="hero-photo" />
+  </div>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="experience-item">
+      <div class="role">Senior Machine Learning Data Scientist</div>
+      <div class="company">Apple Inc, Cupertino, CA | ML & Data Science for Apple Software Services, IS&T</div>
+      <div class="date">May 2023 | Present</div>
+      <ul>
+        <li>Designed and deployed <strong>multilingual LLM pipelines</strong> for global social-feed text analysis: sentiment, topic clustering, NER, abstractive summarization, and demand forecasting across Apple's Lines of Business (App Store, Apple Music).</li>
+        <li>Built <strong>5-agent modular MCP framework</strong> enabling structured chain-of-thought reasoning, multi-tool orchestration, and self-refinement loops. Improved interpretability and reduced hallucination rates in multilingual settings.</li>
+        <li>Developed <strong>LLM-as-Judge evaluation frameworks</strong> with multi-judge ensembles (Falcon, Llama3, Qwen2.5, Mixtral, Mistral), fine-grained error taxonomies, bias/robustness assessments, and cross-language consistency metrics using BERTScore.</li>
+        <li>Implemented <strong>RAG pipelines</strong> with dynamic aspect-relevance gating (cosine similarity thresholds), context-aware query expansion, and grounded summarization under high-volume content streams.</li>
+        <li>Led <strong>LLMOps infrastructure</strong> on SageMaker + Kubernetes: CI/CD, automated regression testing, live evaluation dashboards (BERTScore/ROUGE trends, sentiment F1, topic coherence, volume coverage).</li>
+        <li>Built <strong>intent and demand discovery systems</strong> with role-conditioned clustering, entity co-occurrence networks, temporal intent shift detection, and multi-signal demand opportunity scoring.</li>
+        <li><strong>Coursework:</strong> Reinforcement Learning, Stanford University (XCS234 Spring 2025)</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <div class="role">Data And Applied Scientist</div>
+      <div class="company">Microsoft, Redmond, WA | NLP & Data Science for Windows and Surface Devices</div>
+      <div class="date">Jun 2020 | Mar 2023</div>
+      <ul>
+        <li>Transformed user feedback into actionable insights using <strong>knowledge graph</strong> representations. Implemented ML-Ops pipelines for data versioning, model versioning, and data completeness in Windows telemetry.</li>
+        <li>Analyzed subsystem data streams (Wake on Touch, Wake on Fingerprint Reader, Haptic Touchpad) which won the <strong>Disability Smart Technology Award 2024</strong> by Business Disability Forum, London, UK.</li>
+        <li>Established critical KPI metrics influencing design decisions, bug prioritization, and feature iterations. Delivered production pipelines using PowerBI, Kusto (SQL), Cosmos, Databricks, and Python.</li>
+      </ul>
+    </div>
+
+    <div class="experience-item">
+      <div class="role">Data And Applied Scientist</div>
+      <div class="company">Skype SRO (Microsoft), Prague, CZ | NLP & Data Science for Calling, Meetings & Devices, Microsoft Teams</div>
+      <div class="date">Jan 2019 | Jun 2020</div>
+      <ul>
+        <li>Developed a <strong>3D CNN-based ASL-to-Live-Captions</strong> recognition and translation system integrated with Microsoft Teams. Won Best Hack, Best Pitch, People's Choice Award at Microsoft Internal Hackathon 2019.</li>
+        <li>Published ASL Recognition system at <strong>Machine Learning and Data Science, Microsoft</strong> (MLADS, Nov 2019), Redmond WA.</li>
+        <li>Designed predictive models for pre-join call quality in Microsoft Teams; deployed anomaly detection using Azure ML Studio and Azure Databricks.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research & Publications</h2>
+
+    <div class="pub-item">
+      <h3>EMOFIEL: Mapping Emotions of Relationships in a Story</h3>
+      <div class="pub-meta">Harshita Jhavar and Paramita Mirza | WWW '18 Companion, Lyon, France. ACM, 2018.</div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1145/3184558.3186357" target="_blank">Paper</a>
+        <a href="https://github.com/harshitaJhavar/EMOFIEL" target="_blank">Source Code</a>
+        <a href="https://github.com/harshitaJhavar/EMOFIEL#demo" target="_blank">Demo</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <h3>Beyond Modeling of Categorical Emotions in a Neural Network Based Social Chatbot</h3>
+      <div class="pub-meta">Master Thesis | Spoken Language Systems Lab, Saarland University. Advisor: Dr. Dietrich Klakow</div>
+      <div class="pub-links">
+        <a href="https://github.com/harshitaJhavar" target="_blank">Source Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <h3>American Sign Language Recognition and Translation System to Live Captions using 3D CNN for MS Teams</h3>
+      <div class="pub-meta">Machine Learning and Data Science, Microsoft (MLADS, Nov 2019), Redmond WA, USA</div>
+      <div class="pub-links">
+        <a href="https://github.com/harshitaJhavar/American-Sign-Language-to-Text-and-Speech" target="_blank">Source Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <h3>Talking about the Moving Image: A Declarative Model for Image Schema Based Embodied Perception Grounding and Language Generation</h3>
+      <div class="pub-meta">arXiv: 1508.03276, Cornell University Library, 2015.</div>
+      <div class="pub-links">
+        <a href="https://arxiv.org/abs/1508.03276" target="_blank">arXiv Paper</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <h3>Building Natural Language Generator System for Dynamic Spatial Temporal Data</h3>
+      <div class="pub-meta">Bachelor Thesis | Cognitive Space Design Solutions Lab, University of Bremen. Advisor: Dr. Mehul Bhatt</div>
+      <div class="pub-links">
+        <a href="https://github.com/harshitaJhavar" target="_blank">Source Code</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3><a href="https://github.com/harshitaJhavar/Aspect-Based-Sentiment-Analysis" target="_blank">Multilingual Aspect-Based Sentiment Analysis</a></h3>
+        <p>Production ABSA pipeline using DeBERTa-v3 and XLM-RoBERTa with multi-device inference (GPU/MPS/CPU), FP16 optimization, concurrent batch processing, and probability aggregation across aspect variants. Tested across 6+ languages.</p>
+        <div class="tags">
+          <span class="tag">DeBERTa-v3</span>
+          <span class="tag">XLM-RoBERTa</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Multilingual</span>
+          <span class="tag">FP16</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Multi-Agent Topic Summarisation & Intent Discovery</h3>
+        <p>End-to-end pipeline: BERTopic clustering with HDBSCAN, multi-judge LLM evaluation (5-model ensemble), language-aware routing (CJK vs. Western), temporal intent shift detection, role-conditioned analysis, and demand opportunity scoring.</p>
+        <div class="tags">
+          <span class="tag">BERTopic</span>
+          <span class="tag">HDBSCAN</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">Multi-Judge Eval</span>
+          <span class="tag">BERTScore</span>
+          <span class="tag">Streamlit</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Search Relevancy & Retrieval</h3>
+        <p>Production-grade IR library with TF-IDF, BM25 (Okapi), and dense embedding rankers. Provider pattern for embedding backends (hash-based + OpenAI). Evaluated with Precision@K and Recall@K. Pip-installable with CLI and pytest suite.</p>
+        <div class="tags">
+          <span class="tag">BM25</span>
+          <span class="tag">Dense Retrieval</span>
+          <span class="tag">OpenAI Embeddings</span>
+          <span class="tag">IR Metrics</span>
+          <span class="tag">Python Package</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Topic Summarizer on SageMaker</h3>
+        <p>FastAPI inference server with Pydantic validation, aspect-relevance gating via cosine similarity, BERTopic on filtered content, and SageMaker deployment. Dockerized with CI/CD integration.</p>
+        <div class="tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">SageMaker</span>
+          <span class="tag">Docker</span>
+          <span class="tag">BERTopic</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/harshitaJhavar/American-Sign-Language-to-Text-and-Speech" target="_blank">ASL-to-Live-Captions (3D CNN)</a></h3>
+        <p>3D CNN-based American Sign Language recognition and translation system integrated with Microsoft Teams for inclusive meeting experiences. Won triple award at Microsoft Hackathon.</p>
+        <div class="tags">
+          <span class="tag">3D CNN</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">MS Teams</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/harshitaJhavar/EMOFIEL" target="_blank">EMOFIEL: Emotion Mapping in Stories</a></h3>
+        <p>Unsupervised lexicon-based algorithm for directed scene-wise emotion analysis on character relationships in novel text. Published at WWW '18. Max Planck Institute for Informatics.</p>
+        <div class="tags">
+          <span class="tag">Emotion AI</span>
+          <span class="tag">Unsupervised</span>
+          <span class="tag">NLP</span>
+          <span class="tag">WWW '18</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>LSTM Emotional Response Chatbot</h3>
+        <p>Neural network chatbot with 5 distinct emotional personalities using LSTM-based response generation. Master thesis research at Saarland University.</p>
+        <div class="tags">
+          <span class="tag">LSTM</span>
+          <span class="tag">Dialogue Systems</span>
+          <span class="tag">Emotion AI</span>
+          <span class="tag">Personality</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Falling Walls: Speech to ASL Translation</h3>
+        <p>Cross-modal translation system for Speech to American Sign Language. Won Falling Walls Lab nationals, represented India at the global conference in Berlin as an A.T. Kearney Fellow.</p>
+        <div class="tags">
+          <span class="tag">Cross-Modal</span>
+          <span class="tag">Translation</span>
+          <span class="tag">Sign Language</span>
+          <span class="tag">Global Finalist</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <div>
+        <div class="degree">Master of Science in Computer Science</div>
+        <div class="school">Saarland University, Germany | GPA: 3.7</div>
+      </div>
+      <div class="edu-date">Oct 2016 | Feb 2019</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="degree">Bachelor of Technology in Computer Science & Engineering</div>
+        <div class="school">Maulana Azad National Institute of Technology, Bhopal, India | GPA: 4.0</div>
+      </div>
+      <div class="edu-date">Jul 2011 | Jun 2015</div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <div class="degree">Reinforcement Learning (XCS234)</div>
+        <div class="school">Stanford University | Certificate</div>
+      </div>
+      <div class="edu-date">Spring 2025</div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2>Awards & Recognition</h2>
+
+    <div class="award-item">
+      <strong>Disability Smart Technology Award 2024</strong> <span>| Business Disability Forum, London, UK (Surface accessibility features)</span>
+    </div>
+    <div class="award-item">
+      <strong>Best Hack + Best Pitch + People's Choice Award</strong> <span>| Microsoft Internal Hackathon 2019, Prague (ASL-to-Live-Captions)</span>
+    </div>
+    <div class="award-item">
+      <strong>Global Finalist, Falling Walls Young Innovator Conference</strong> <span>| Berlin, Germany, Nov 2014. Represented India as A.T. Kearney Fellow.</span>
+    </div>
+    <div class="award-item">
+      <strong>BISIP Santander Fellow</strong> <span>| University of Bremen, Germany, 2015</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Harshita Jhavar</span>
+    <div>
+      <a href="mailto:jhavarharshita@gmail.com">Email</a>
+      <a href="https://github.com/harshitaJhavar" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/harshitajhavar" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=harshitajhavar" target="_blank">Scholar</a>
+    </div>
+  </footer>
+
+</body>
+</html>
